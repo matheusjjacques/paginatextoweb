@@ -1,0 +1,7 @@
+{
+  "text": "Este é um texto de teste para verificar o funcionamento do editor persistente.\n\nEle permite salvar textos com até 4.000 linhas e mantém o conteúdo acessível para qualquer pessoa ou IA.\n\nFuncionalidades:\n- Edição de texto com numeração de linhas\n- Salvamento persistente no servidor\n- Carregamento automático do texto salvo\n- Contagem de linhas, caracteres e palavras\n- Interface responsiva e moderna\n\nEste texto ficará visível publicamente após ser salvo!",
+  "last_updated": "2025-06-15T14:04:05.066999",
+  "line_count": 12,
+  "char_count": 455,
+  "word_count": 71
+}

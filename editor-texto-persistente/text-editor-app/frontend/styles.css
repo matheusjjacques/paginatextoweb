@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.editor-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #64748b;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.editor-wrapper {
+    position: relative;
+    height: 500px;
+}
+
+#textEditor {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 25px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    background: transparent;
+    color: #1e293b;
+    padding-left: 75px;
+}
+
+#textEditor::placeholder {
+    color: #94a3b8;
+}
+
+.line-numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    background: #f1f5f9;
+    border-right: 1px solid #e2e8f0;
+    padding: 25px 10px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #94a3b8;
+    user-select: none;
+    overflow: hidden;
+}
+
+.saved-content-section {
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.section-header h3 {
+    color: #1e293b;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.saved-content {
+    padding: 25px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: white;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1e293b;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.footer-info {
+    padding: 20px 25px;
+    background: #f8fafc;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.footer-info p {
+    margin-bottom: 8px;
+}
+
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.status-message {
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.status-message.success {
+    color: #10b981;
+}
+
+.status-message.error {
+    color: #ef4444;
+}
+
+.status-message.loading {
+    color: #3b82f6;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .stats {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .actions {
+        justify-content: center;
+    }
+    
+    .editor-wrapper {
+        height: 400px;
+    }
+    
+    .line-numbers {
+        width: 40px;
+        padding: 25px 5px;
+    }
+    
+    #textEditor {
+        padding-left: 60px;
+        font-size: 13px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.editor-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px;
+        opacity: 1;
+    }
+}
+
+.saved-content-section.show {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Scrollbar personalizada */
+#textEditor::-webkit-scrollbar,
+.saved-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+#textEditor::-webkit-scrollbar-track,
+.saved-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#textEditor::-webkit-scrollbar-thumb,
+.saved-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+#textEditor::-webkit-scrollbar-thumb:hover,
+.saved-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Notificações */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.notification.success {
+    background: #10b981;
+}
+
+.notification.error {
+    background: #ef4444;
+}
+
+.notification.warning {
+    background: #f59e0b;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+

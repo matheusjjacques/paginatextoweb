@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Texto Persistente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📝 Editor de Texto Persistente</h1>
+            <p class="subtitle">Escreva, salve e compartilhe seus textos. Acessível para humanos e IAs.</p>
+        </header>
+
+        <div class="editor-container">
+            <div class="toolbar">
+                <div class="stats">
+                    <span id="lineCount">Linhas: 0</span>
+                    <span id="charCount">Caracteres: 0</span>
+                    <span id="wordCount">Palavras: 0</span>
+                </div>
+                <div class="actions">
+                    <button id="loadBtn" class="btn btn-secondary">📂 Carregar</button>
+                    <button id="saveBtn" class="btn btn-primary">💾 Salvar</button>
+                    <button id="clearBtn" class="btn btn-secondary">🗑️ Limpar</button>
+                    <button id="copyBtn" class="btn btn-primary">📋 Copiar</button>
+                </div>
+            </div>
+
+            <div class="editor-wrapper">
+                <textarea 
+                    id="textEditor" 
+                    placeholder="Digite ou cole seu texto aqui... (máximo 4.000 linhas)"
+                    spellcheck="false"
+                ></textarea>
+                <div class="line-numbers" id="lineNumbers"></div>
+            </div>
+
+            <div class="saved-content-section" id="savedContentSection" style="display: none;">
+                <div class="section-header">
+                    <h3>📄 Texto Salvo</h3>
+                    <button id="toggleViewBtn" class="btn btn-small">👁️ Mostrar/Ocultar</button>
+                </div>
+                <div class="saved-content" id="savedContent"></div>
+            </div>
+
+            <div class="footer-info">
+                <p>💡 <strong>Dica:</strong> O texto salvo fica visível publicamente nesta página para qualquer pessoa ou IA acessar.</p>
+                <p>🔄 Última atualização: <span id="lastUpdate">Nunca</span></p>
+                <p id="statusMessage" class="status-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
